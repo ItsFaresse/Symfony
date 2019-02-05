@@ -1,0 +1,600 @@
+{
+	"info": {
+		"_postman_id": "4a1cac26-0c41-4318-b031-0155a2bd7c02",
+		"name": "VOD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Movies",
+			"item": [
+				{
+					"name": "Movie",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": 1,\n\t\"name\": \"Star Wars\",\n\t\"synopsis\":\"Les héros du Réveil de la force rejoignent les figures légendaires de la galaxie dans une aventure épique qui révèle des secrets ancestraux sur la Force et entraîne de surprenantes révélations sur le passé… \",\n\t\"image\":\"https://via.placeholder.com/150/92c952\",\n\t\"price\":12.99,\n\t\"date\":\"01/11/1990\",\n\t\"url_trailer\":\"https://www.youtube.com/watch?v=Q0CbN8sfihY\",\n\t\"url_download\":\"https://www.youtube.com/watch?v=Q0CbN8sfihY\",\n\t\"categories\": [\n\t\t{\n\t\t\t\"name\": \"action\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"fantastique\"\n\t\t}\n\t],\n\t\"artists\" : [\n\t\t{\n\t\t\t\"firstname\": \"Jacques\",\n\t\t\t\"lastName\":\"Pierre\",\n\t\t\t\"birthdate\":\"10/11/1899\",\n\t\t\t\"is_actor\" : 1,\n\t\t\t\"is_director+\" : 0\n\t\t},\n\t\t{\n\t\t\t\"firstname\": \"booba\",\n\t\t\t\"lastName\":\"Omar\",\n\t\t\t\"birthdate\":\"10/11/1999\",\n\t\t\t\"is_actor\" : 0,\n\t\t\t\"is_director\" : 1\n\t\t}\n\t]\n\t\n}"
+						},
+						"url": {
+							"raw": "{{uri}}/api/movies/1",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"api",
+								"movies",
+								"1"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateMovie",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Mad Max\",\n  \"synopsis\": \"Un film qui se passe dans le désert\",\n  \"price\": 100,\n  \"image\": \"http://sf2.viepratique.fr/wp-content/uploads/sites/9/2015/04/The-gigahorse-750x410.jpg\",\n  \"date\": \"2018-12-06T13:10:36.189Z\",\n  \"urlTrailer\": \"https://www.youtube.com/watch?v=hEJnMQG9ev8\",\n  \"urlDownload\": \"https://www.youtube.com/watch?v=hEJnMQG9ev8\"\n}"
+						},
+						"url": {
+							"raw": "{{uri}}/api/movies",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"api",
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteMovie",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{uri}}/movie/delete/1",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"movie",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Artists",
+			"item": [
+				{
+					"name": "Artist",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n\t\"firstname\": \"Jacques\",\n\t\"lastName\":\"Pierre\",\n\t\"birthdate\":\"10/11/1899\",\n\t\"is_actor\" : 1,\n\t\"is_director+\" : 0\n}\n\t\n"
+						},
+						"url": {
+							"raw": "{{uri}}/artist?name=Jacques",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"artist"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "Jacques"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateArtist",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Star Wars\",\n\t\"synopsis\":\"Les héros du Réveil de la force rejoignent les figures légendaires de la galaxie dans une aventure épique qui révèle des secrets ancestraux sur la Force et entraîne de surprenantes révélations sur le passé… \",\n\t\"image\":\"https://via.placeholder.com/150/92c952\",\n\t\"price\":12.99,\n\t\"date\":\"01/11/1990\",\n\t\"url_trailer\":\"https://www.youtube.com/watch?v=Q0CbN8sfihY\",\n\t\"url_download\":\"https://www.youtube.com/watch?v=Q0CbN8sfihY\",\n\t\"categories\": [\n\t\t{\n\t\t\t\"name\": \"action\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"fantastique\"\n\t\t}\n\t],\n\t\"artists\" : [\n\t\t{\n\t\t\t\"firstname\": \"Jacques\",\n\t\t\t\"lastName\":\"Pierre\",\n\t\t\t\"birthdate\":\"10/11/1899\",\n\t\t\t\"is_actor\" : 1,\n\t\t\t\"is_director+\" : 0\n\t\t},\n\t\t{\n\t\t\t\"firstname\": \"booba\",\n\t\t\t\"lastName\":\"Omar\",\n\t\t\t\"birthdate\":\"10/11/1999\",\n\t\t\t\"is_actor\" : 0,\n\t\t\t\"is_director\" : 1\n\t\t}\n\t]\n\t\n}"
+						},
+						"url": {
+							"raw": "{{uri}}/artist/",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"artist",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteArtist",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{uri}}/artist/delete?name=Jacques",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"artist",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Jacques"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "Category",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{uri}}/api/categories/1",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCategory",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{uri}}/categorie/delete?name=action",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"categorie",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "action"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateCategory",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\n\t\"name\": \"horreur\"\n}"
+						},
+						"url": {
+							"raw": "{{uri}}/api/categories",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "getUser",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{uri}}/users/1",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Rate",
+			"item": [
+				{
+					"name": "Rate",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\t\"id\":, \t\n\t\t\"firstname\":,\n\t\t\"lastname\":,\n\t\t\"email\":,\n\t\t\"password\": \n}"
+						},
+						"url": {
+							"raw": "{{uri}}/rate/",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"rate",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GiveRate",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{uri}}/rate?value=2",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"rate"
+							],
+							"query": [
+								{
+									"key": "value",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateRate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{uri}}/rate/update/1",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"rate",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "9a24c133-d6bb-4f14-a499-6ad0e83656d0",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "25dcefcb-5a7a-42fc-a9f8-745ec609be5d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "getCommentFromMovie",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{uri}}/movie/comment/1",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"movie",
+								"comment",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteComment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{uri}}/movie/comment/delete/1",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"movie",
+								"comment",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateComment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{uri}}/movie/comment/update/1",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"movie",
+								"comment",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Basket",
+			"item": [
+				{
+					"name": "getBasket",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{uri}}/basket/1",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"basket",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteBasket",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{uri}}/basket/delete/1",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"basket",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateBasket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{uri}}/basket/update/1",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"basket",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

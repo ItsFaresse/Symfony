@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Movie index{% endblock %}
+
+{% block body %}
+
+    <div class="btn-group" role="group" aria-label="Basic example">	
+    {# <button type="button" class="btn btn-light"><a href="{{ path('movie_index') }}">Movie</a></button> #}
+    <button type="button" class="btn btn-light"><a href="{{ path('category_index') }}">Category</a></button>
+    <button type="button" class="btn btn-light"><a href="{{ path('artist_index') }}">Artist</a></button>
+    <button type="button" class="btn btn-light"><a href="{{ path('has_artist_index') }}">Has Artist</a></button>
+    </div>
+    
+    <h1>Movie index</h1>
+    <button type="button" class="btn btn-light"><a href="{{ path('movie_new') }}">Create new movie</a></button>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <table class="table table-sm table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Synopsis</th>
+                <th scope="col">Price</th>
+                <th scope="col">Image</th>
+                <th scope="col">Date</th>
+                <th scope="col">Url_trailer</th>
+                <th scope="col">Url_download</th>
+                <th scope="col">actions</th>
+
+            </tr>
+        </thead>
+        <tbody>
+        {% for movie in movies %}
+            <tr>
+                <td>{{ movie.id }}</td>
+                <td>{{ movie.name }}</td>
+                <td>{{ movie.synopsis }}</td>
+                <td>{{ movie.price }}</td>
+                <td>{{ movie.image }}</td>
+                <td>{{ movie.date ? movie.date|date('Y-m-d') : '' }}</td>
+                <td>{{ movie.urlTrailer }}</td>
+                <td>{{ movie.urlDownload }}</td>
+
+
+                <td>
+                    <a href="{{ path('movie_show', {'id': movie.id}) }}">show</a>
+                    <a href="{{ path('movie_edit', {'id': movie.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

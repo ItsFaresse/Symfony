@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil - HD Technology{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+
+    .immo{
+        width: 100%;
+    }
+</style>
+
+    <div>
+        <img class="immo" src="https://www.immobilier-desaulles.fr/wp-content/uploads/2018/03/BANNIERE-400X100-2018.jpg" alt="">
+    </div>
+
+<div class="container mt-4">
+    <h2 class="md-4">À la une</h2>
+    <div class="row flex">
+        {% for property in properties %}
+            <div class="col-3">
+                <div class="card">
+                    {% if property.filename  %}
+                        <img src="images/properties/{{ property.filename }}" alt="" class="card-img-top" style="max-width: 100%; height: auto;">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="{{ path('property.show', {id: property.id, slug: property.slug}) }}">{{ property.title }}</a>
+                        </h5>
+                        <p class="card-text">{{ property.city }} ({{ property.postalCode }})</p>
+                        <div class="text-primary" style="font-weight: bold;font-size: 2rem;">{{ property.price | number_format(0, '', ' ') }}€</div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
