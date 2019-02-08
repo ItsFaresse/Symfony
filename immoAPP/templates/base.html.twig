@@ -6,16 +6,17 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ asset('assets/css/sb-admin-2.min.css') }}">
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
     <style>
         .pickcolor {
-            background-color: #02b3c7;
+            background-color: whitesmoke;
         }
     </style>
-    <nav class="navbar navbar-expand-lg navbar-dark pickcolor">
-        <a class="navbar-brand" href="{{ path('home') }}">HD Technology</a>
+    <nav class="navbar navbar-expand-lg pickcolor">
+        <a class="navbar-brand" href="{{ path('home') }}"><img src="{{ asset('images/properties/php2.PNG') }}" alt="" style="height:75px;width:auto;"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
