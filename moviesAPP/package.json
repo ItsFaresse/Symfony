@@ -4,7 +4,7 @@
         "@symfony/webpack-encore": "^0.22.0",
         "mini-css-extract-plugin": "^0.5.0",
         "webpack": "^4.27.1",
-        "webpack-cli": "^3.1.2",
+        "webpack-cli": "^3.3.12",
         "webpack-notifier": "^1.6.0"
     },
     "license": "UNLICENSED",
